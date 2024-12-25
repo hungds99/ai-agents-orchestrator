@@ -1,0 +1,10 @@
+{
+  "node_version": "20",
+  "graphs": {
+    "agent": "./langgraph-start/index.ts:graph"
+  },
+  "env": ".env",
+  "dependencies": [
+    "."
+  ]
+}
