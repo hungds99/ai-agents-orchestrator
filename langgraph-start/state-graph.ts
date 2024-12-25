@@ -48,15 +48,18 @@ function giveMeJoke(state: typeof StateAnnotation.State, config?: RunnableConfig
 function routingFunction(state: typeof StateAnnotation.State) {
   console.info('Routing Function: ', state);
   if (state.input?.includes('format:')) {
-    return 'giveMeJoke';
+    return 'callJoke';
   }
-  return 'callModel';
+  return 'next';
 }
 
 export const stateGraph = new StateGraph(StateAnnotation)
   .addNode('giveMeJoke', giveMeJoke)
   .addNode('callModel', callModel)
-  .addConditionalEdges(START, routingFunction)
+  .addConditionalEdges(START, routingFunction, {
+    callJoke: 'giveMeJoke',
+    next: 'callModel',
+  })
   .addEdge('giveMeJoke', 'callModel')
   .addEdge('callModel', END);
 
