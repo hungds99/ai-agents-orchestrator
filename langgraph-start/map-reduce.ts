@@ -6,7 +6,7 @@ import { ChatOpenAI } from '@langchain/openai';
 
 // Define model and prompts we will use
 const subjectsPrompt =
-  'Generate a comma separated list of between 2 and 5 examples related to: {topic}.';
+  'Generate a comma separated list of between 5 and 10 examples related to: {topic}.';
 const jokePrompt = 'Generate a joke about {subject}';
 const bestJokePrompt = `Below are a bunch of jokes about {topic}. Select the best one! Return the ID (index) of the best one.
 
@@ -24,7 +24,7 @@ const BestJoke = z.object({
 });
 
 const model = new ChatOpenAI({
-  model: 'gpt-3.5-turbo',
+  model: 'gpt-4o',
 });
 
 /* Graph components: define the components that will make up the graph */
