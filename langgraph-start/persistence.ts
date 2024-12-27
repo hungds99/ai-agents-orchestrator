@@ -51,7 +51,6 @@ const agent = async (state: typeof StateAnnotation.State, config?: RunnableConfi
   return { messages: [response] };
 };
 
-console.log('persistenceStateGraph');
 export const persistenceStateGraph = new StateGraph(StateAnnotation)
   .addNode('agent', agent)
   .addNode('tools', toolNode)

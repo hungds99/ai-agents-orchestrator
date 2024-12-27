@@ -2,7 +2,8 @@
   "dependencies": {
     "@langchain/community": "^0.3.20",
     "@langchain/core": "^0.3.26",
-    "@langchain/langgraph": "^0.2.34",
+    "@langchain/langgraph": "^0.2.36",
+    "@langchain/langgraph-checkpoint-postgres": "^0.0.2",
     "@langchain/openai": "^0.3.16",
     "@langchain/textsplitters": "^0.1.0",
     "cheerio": "^1.0.0",
@@ -10,5 +11,8 @@
     "multi-agent-orchestrator": "^0.1.2",
     "zod": "^3.24.1",
     "zod-to-json-schema": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.10"
   }
 }

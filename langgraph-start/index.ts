@@ -7,13 +7,24 @@
 // import { useCommandGraph } from './use-command';
 // export const graph = useCommandGraph.compile();
 
-import { MemorySaver } from '@langchain/langgraph';
+// import { PostgresSaver } from '@langchain/langgraph-checkpoint-postgres';
 import { persistenceStateGraph } from './persistence';
+// import pg from 'pg';
+import { MemorySaver } from '@langchain/langgraph';
+
+// const { Pool } = pg;
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+// });
+
+// const postgresMemory = new PostgresSaver(pool);
+// postgresMemory.setup();
 
 const memory = new MemorySaver();
 
 export const graph = persistenceStateGraph.compile({
-  checkpointer: memory,
+  // checkpointer: postgresMemory,
+  // checkpointer: memory,
 });
 
 graph.name = 'langgraph-start';
