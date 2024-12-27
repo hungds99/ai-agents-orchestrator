@@ -8,9 +8,10 @@
 // export const graph = useCommandGraph.compile();
 
 // import { PostgresSaver } from '@langchain/langgraph-checkpoint-postgres';
-import { persistenceStateGraph } from './persistence';
+// import { persistenceStateGraph } from './persistence';
 // import pg from 'pg';
-import { MemorySaver } from '@langchain/langgraph';
+// import { MemorySaver } from '@langchain/langgraph';
+// import { subgraphPersistence } from './subgraph-persistnce';
 
 // const { Pool } = pg;
 // const pool = new Pool({
@@ -20,11 +21,15 @@ import { MemorySaver } from '@langchain/langgraph';
 // const postgresMemory = new PostgresSaver(pool);
 // postgresMemory.setup();
 
-const memory = new MemorySaver();
+// const memory = new MemorySaver();
 
-export const graph = persistenceStateGraph.compile({
-  // checkpointer: postgresMemory,
-  // checkpointer: memory,
-});
+// export const graph = persistenceStateGraph.compile({
+//   // checkpointer: postgresMemory,
+//   // checkpointer: memory,
+// });
+
+import { subgraphPersistence } from './subgraph-persistence';
+
+export const graph = subgraphPersistence.compile();
 
 graph.name = 'langgraph-start';
