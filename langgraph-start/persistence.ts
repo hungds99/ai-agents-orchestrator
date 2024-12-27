@@ -32,6 +32,7 @@ const toolNode = new ToolNode(tools);
 const model = new ChatOpenAI({ model: 'gpt-4o' }).bindTools(tools);
 
 const routeMessage = (state: typeof StateAnnotation.State) => {
+  console.log('Routing message: ', state.messages);
   const { messages } = state;
   const lastMessage = messages[messages.length - 1] as AIMessage;
 
@@ -50,6 +51,7 @@ const agent = async (state: typeof StateAnnotation.State, config?: RunnableConfi
   return { messages: [response] };
 };
 
+console.log('persistenceStateGraph');
 export const persistenceStateGraph = new StateGraph(StateAnnotation)
   .addNode('agent', agent)
   .addNode('tools', toolNode)

@@ -7,7 +7,13 @@
 // import { useCommandGraph } from './use-command';
 // export const graph = useCommandGraph.compile();
 
+import { MemorySaver } from '@langchain/langgraph';
 import { persistenceStateGraph } from './persistence';
-export const graph = persistenceStateGraph.compile();
+
+const memory = new MemorySaver();
+
+export const graph = persistenceStateGraph.compile({
+  checkpointer: memory,
+});
 
 graph.name = 'langgraph-start';
