@@ -6,5 +6,6 @@
   "env": ".env",
   "dependencies": [
     "."
-  ]
+  ],
+  "docker_compose_file": "./docker-compose.yml"
 }
